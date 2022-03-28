@@ -184,6 +184,7 @@ namespace QL_HSCap2
             this.btnTimKiemLoaiDiem.TabIndex = 94;
             this.btnTimKiemLoaiDiem.Text = "Tìm Kiếm";
             this.btnTimKiemLoaiDiem.UseVisualStyleBackColor = true;
+            this.btnTimKiemLoaiDiem.Click += new System.EventHandler(this.btnTimKiemLoaiDiem_Click);
             // 
             // btnXoaLoaiDiem
             // 

@@ -189,6 +189,11 @@ namespace QL_HSCap2
 
             }
         }
+
+        private void btnTimKiemLoaiDiem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

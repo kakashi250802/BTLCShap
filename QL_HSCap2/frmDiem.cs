@@ -170,5 +170,50 @@ namespace QL_HSCap2
         {
             resetForm();
         }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            
+            DialogResult re = MessageBox.Show("Bạn có muốn xóa loại điểm", "Có", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (re == DialogResult.No) return;
+
+            try
+            {
+                DataView dvDiem = (DataView)gridviewDiemSo.DataSource;
+                DataRowView drvDiem = dvDiem[gridviewDiemSo.CurrentRow.Index];
+                string connectionString = ConfigurationManager.ConnectionStrings["QL_DiemHSCap2"].ConnectionString;
+
+                using (SqlConnection Cnn = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand Cmd = new SqlCommand("sp_DeleteDiem", Cnn))
+                    {
+                        Cmd.CommandType = CommandType.StoredProcedure;
+                        Cmd.Parameters.AddWithValue("@sMaHS", drvDiem["sMaHS"]);
+                        Cmd.Parameters.AddWithValue("@sMaMon", drvDiem["sMaMon"]);
+                        Cmd.Parameters.AddWithValue("@sMaDiem", drvDiem["sMaDiem"]);
+
+                        Cnn.Open();
+                        Cmd.ExecuteNonQuery();
+                        Cnn.Close();
+
+                        hienDiem();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                if (ex.Message.Contains("REFERENCE"))
+                    MessageBox.Show("Môn học có liên kết", "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("Lỗi kỹ thuật", "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
