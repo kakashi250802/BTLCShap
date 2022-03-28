@@ -40,12 +40,14 @@ namespace QL_HSCap2
             this.btnBoQua = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.gridviewDiemSo = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtMaHS = new System.Windows.Forms.TextBox();
+            this.txtMaMon = new System.Windows.Forms.TextBox();
+            this.txtMaDiem = new System.Windows.Forms.TextBox();
+            this.txtNamHoc = new System.Windows.Forms.TextBox();
+            this.txtHocKy = new System.Windows.Forms.TextBox();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
+            this.txtDiem = new System.Windows.Forms.TextBox();
+            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,7 +76,7 @@ namespace QL_HSCap2
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(182, 166);
+            this.materialLabel1.Location = new System.Drawing.Point(182, 189);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(77, 19);
@@ -113,7 +115,7 @@ namespace QL_HSCap2
             this.materialLabel4.Depth = 0;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto", 11F);
             this.materialLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel4.Location = new System.Drawing.Point(198, 204);
+            this.materialLabel4.Location = new System.Drawing.Point(198, 227);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
             this.materialLabel4.Size = new System.Drawing.Size(61, 19);
@@ -149,6 +151,7 @@ namespace QL_HSCap2
             this.btnSua.TabIndex = 11;
             this.btnSua.Text = "Sửa";
             this.btnSua.UseVisualStyleBackColor = true;
+            this.btnSua.Click += new System.EventHandler(this.btnSua_Click);
             // 
             // btnBoQua
             // 
@@ -159,6 +162,7 @@ namespace QL_HSCap2
             this.btnBoQua.TabIndex = 10;
             this.btnBoQua.Text = "Bỏ qua";
             this.btnBoQua.UseVisualStyleBackColor = true;
+            this.btnBoQua.Click += new System.EventHandler(this.btnBoQua_Click);
             // 
             // btnThem
             // 
@@ -167,8 +171,9 @@ namespace QL_HSCap2
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(75, 24);
             this.btnThem.TabIndex = 9;
-            this.btnThem.Text = "Thêm";
+            this.btnThem.Text = "Thêm Mới";
             this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // gridviewDiemSo
             // 
@@ -185,40 +190,40 @@ namespace QL_HSCap2
             this.gridviewDiemSo.Size = new System.Drawing.Size(645, 184);
             this.gridviewDiemSo.TabIndex = 14;
             // 
-            // textBox1
+            // txtMaHS
             // 
-            this.textBox1.Location = new System.Drawing.Point(266, 54);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(271, 20);
-            this.textBox1.TabIndex = 15;
+            this.txtMaHS.Location = new System.Drawing.Point(266, 54);
+            this.txtMaHS.Name = "txtMaHS";
+            this.txtMaHS.Size = new System.Drawing.Size(271, 20);
+            this.txtMaHS.TabIndex = 15;
             // 
-            // textBox2
+            // txtMaMon
             // 
-            this.textBox2.Location = new System.Drawing.Point(266, 93);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(271, 20);
-            this.textBox2.TabIndex = 16;
+            this.txtMaMon.Location = new System.Drawing.Point(266, 93);
+            this.txtMaMon.Name = "txtMaMon";
+            this.txtMaMon.Size = new System.Drawing.Size(271, 20);
+            this.txtMaMon.TabIndex = 16;
             // 
-            // textBox3
+            // txtMaDiem
             // 
-            this.textBox3.Location = new System.Drawing.Point(266, 131);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(271, 20);
-            this.textBox3.TabIndex = 17;
+            this.txtMaDiem.Location = new System.Drawing.Point(266, 131);
+            this.txtMaDiem.Name = "txtMaDiem";
+            this.txtMaDiem.Size = new System.Drawing.Size(271, 20);
+            this.txtMaDiem.TabIndex = 17;
             // 
-            // textBox4
+            // txtNamHoc
             // 
-            this.textBox4.Location = new System.Drawing.Point(266, 165);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(271, 20);
-            this.textBox4.TabIndex = 18;
+            this.txtNamHoc.Location = new System.Drawing.Point(266, 188);
+            this.txtNamHoc.Name = "txtNamHoc";
+            this.txtNamHoc.Size = new System.Drawing.Size(271, 20);
+            this.txtNamHoc.TabIndex = 18;
             // 
-            // textBox5
+            // txtHocKy
             // 
-            this.textBox5.Location = new System.Drawing.Point(265, 203);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(271, 20);
-            this.textBox5.TabIndex = 19;
+            this.txtHocKy.Location = new System.Drawing.Point(265, 226);
+            this.txtHocKy.Name = "txtHocKy";
+            this.txtHocKy.Size = new System.Drawing.Size(271, 20);
+            this.txtHocKy.TabIndex = 19;
             // 
             // materialLabel5
             // 
@@ -232,6 +237,26 @@ namespace QL_HSCap2
             this.materialLabel5.Size = new System.Drawing.Size(66, 19);
             this.materialLabel5.TabIndex = 20;
             this.materialLabel5.Text = "Điểm Số";
+            // 
+            // txtDiem
+            // 
+            this.txtDiem.Location = new System.Drawing.Point(266, 158);
+            this.txtDiem.Name = "txtDiem";
+            this.txtDiem.Size = new System.Drawing.Size(271, 20);
+            this.txtDiem.TabIndex = 22;
+            // 
+            // materialLabel6
+            // 
+            this.materialLabel6.AutoSize = true;
+            this.materialLabel6.Depth = 0;
+            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel6.Location = new System.Drawing.Point(211, 159);
+            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel6.Name = "materialLabel6";
+            this.materialLabel6.Size = new System.Drawing.Size(48, 19);
+            this.materialLabel6.TabIndex = 21;
+            this.materialLabel6.Text = "Điểm:";
             // 
             // Column1
             // 
@@ -275,7 +300,7 @@ namespace QL_HSCap2
             // 
             // Column6
             // 
-            this.Column6.DataPropertyName = "sHocKi";
+            this.Column6.DataPropertyName = "sNamHoc";
             this.Column6.Frozen = true;
             this.Column6.HeaderText = "Năm Học";
             this.Column6.Name = "Column6";
@@ -286,12 +311,14 @@ namespace QL_HSCap2
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 542);
+            this.Controls.Add(this.txtDiem);
+            this.Controls.Add(this.materialLabel6);
             this.Controls.Add(this.materialLabel5);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtHocKy);
+            this.Controls.Add(this.txtNamHoc);
+            this.Controls.Add(this.txtMaDiem);
+            this.Controls.Add(this.txtMaMon);
+            this.Controls.Add(this.txtMaHS);
             this.Controls.Add(this.gridviewDiemSo);
             this.Controls.Add(this.btnTimKiem);
             this.Controls.Add(this.btnXoa);
@@ -325,12 +352,14 @@ namespace QL_HSCap2
         private System.Windows.Forms.Button btnBoQua;
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.DataGridView gridviewDiemSo;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtMaHS;
+        private System.Windows.Forms.TextBox txtMaMon;
+        private System.Windows.Forms.TextBox txtMaDiem;
+        private System.Windows.Forms.TextBox txtNamHoc;
+        private System.Windows.Forms.TextBox txtHocKy;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
+        private System.Windows.Forms.TextBox txtDiem;
+        private MaterialSkin.Controls.MaterialLabel materialLabel6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;

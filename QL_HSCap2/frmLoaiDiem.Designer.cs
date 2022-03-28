@@ -193,6 +193,7 @@ namespace QL_HSCap2
             this.btnXoaLoaiDiem.TabIndex = 93;
             this.btnXoaLoaiDiem.Text = "Xóa";
             this.btnXoaLoaiDiem.UseVisualStyleBackColor = true;
+            this.btnXoaLoaiDiem.Click += new System.EventHandler(this.btnXoaLoaiDiem_Click);
             // 
             // btnSuaLoaiDiem
             // 

@@ -150,6 +150,45 @@ namespace QL_HSCap2
         {
             resetFormLoaiDiem();
         }
+
+        private void btnXoaLoaiDiem_Click(object sender, EventArgs e)
+        {
+
+            
+            DialogResult re = MessageBox.Show("Bạn có muốn xóa loại điểm", "Có", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (re == DialogResult.No) return;
+
+            try
+            {
+                DataView dvLDiem = (DataView)gridviewLoaiDiem.DataSource;
+                DataRowView drvLDiem = dvLDiem[gridviewLoaiDiem.CurrentRow.Index];
+                string connectionString = ConfigurationManager.ConnectionStrings["QL_DiemHSCap2"].ConnectionString;
+
+                using (SqlConnection Cnn = new SqlConnection(connectionString))
+                {
+                    using (SqlCommand Cmd = new SqlCommand("sp_DeleteLoaiDiem", Cnn))
+                    {
+                        Cmd.CommandType = CommandType.StoredProcedure;
+                        Cmd.Parameters.AddWithValue("@maDiem", drvLDiem["sMaDiem"]);
+
+                        Cnn.Open();
+                        Cmd.ExecuteNonQuery();
+                        Cnn.Close();
+
+                        hienLoaiDiem();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                if (ex.Message.Contains("REFERENCE"))
+                    MessageBox.Show("Môn học có liên kết", "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("Lỗi kỹ thuật", "Kết quả", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+        }
     }
 }
 
